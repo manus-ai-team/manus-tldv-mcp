@@ -14,7 +14,6 @@
     "url": "https://github.com/tldv/mcp-server"
   },
   "homepage": "https://tldv.io/",
-  "license": "MIT",
   "server": {
     "type": "node",
     "entry_point": "dist/index.js",
