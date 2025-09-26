@@ -1,0 +1,73 @@
+{
+  "dxt_version": "0.2",
+  "name": "tldv-mcp",
+  "display_name": "tl;dv",
+  "version": "1.0.0",
+  "description": "Official MCP Server for tl;dv API - enabling AI models to interact with meeting intelligence across Google Meet, Zoom, and Microsoft Teams",
+  "long_description": "This MCP server provides seamless integration with tl;dv's meeting intelligence platform across Google Meet, Zoom, and Microsoft Teams. It enables AI assistants to access, analyze, and derive insights from meeting recordings, transcripts, and highlights. The server offers comprehensive tools for listing meetings with advanced filtering, retrieving detailed meeting metadata, accessing full transcripts with speaker identification and timestamps, and extracting AI-generated highlights and summaries. Requires a tl;dv Business or Enterprise account with API access.",
+  "author": {
+    "name": "tl;dv",
+    "url": "https://tldv.io/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tldv/mcp-server"
+  },
+  "homepage": "https://tldv.io/",
+  "license": "MIT",
+  "server": {
+    "type": "node",
+    "entry_point": "dist/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/dist/index.js"],
+      "env": {
+        "TLDV_API_KEY": "${user_config.tldv_api_key}"
+      }
+    }
+  },
+  "tools": [
+    {
+      "name": "get-meeting-metadata",
+      "description": "Get a meeting by its ID. Returns meeting metadata including name, date, organizer, participants and more."
+    },
+    {
+      "name": "get-transcript",
+      "description": "Get transcript by meeting ID. Returns time-stamped messages with speaker and content."
+    },
+    {
+      "name": "list-meetings",
+      "description": "List all meetings based to filters. Can filter by date, status, query, participation, and meeting type."
+    },
+    {
+      "name": "get-highlights",
+      "description": "Get AI-generated highlights from a meeting by providing a meeting ID."
+    }
+  ],
+  "keywords": [
+    "tldv",
+    "mcp",
+    "model-context-protocol",
+    "ai",
+    "claude",
+    "meetings",
+    "transcription",
+    "highlights",
+    "video-conferencing",
+    "zoom",
+    "google-meet",
+    "microsoft-teams",
+    "meeting-intelligence",
+    "collaboration"
+  ],
+  "user_config": {
+    "tldv_api_key": {
+      "type": "string",
+      "title": "tl;dv API Key",
+      "description": "API key for tl;dv API access. Get your API key from tl;dv settings: https://tldv.io/app/settings/personal-settings/api-keys",
+      "required": true,
+      "sensitive": true,
+      "default": ""
+    }
+  }
+}
